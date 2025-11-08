@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulário do Carômetro</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Poppins font (mantém a tipografia da versão anterior) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Mantém Poppins e tamanho similar ao que você aprovou */
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      /* manter tamanho parecido com versão anterior */
+      background-color: #f5f7fb;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #be5108;
+      border-color: #be5108;
+    }
+
+    .btn-outline-secondary {
+      color: #be5108;
+      background-color: #fff;
+      border-color: #be5108;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(20, 30, 50, 0.06);
+    }
+
+    h1 {
+      color: #be5108;
+    }
+
+    h2 {
+      color: #be5108;
+      font-size: 1.05rem;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #6b7a85;
+    }
+
+    .list-box {
+      background: #fff;
+      border: 1px dashed #cfe7ff;
+      padding: 10px;
+      border-radius: 8px;
+      min-height: 48px;
+    }
+
+    .list-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .list-item .left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .list-item .title {
+      font-weight: 600;
+      color: #123;
+    }
+
+    .list-item .meta {
+      font-size: 0.9rem;
+      color: #6b7a85;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width:575px) {
+      .controls-sm-stack {
+        flex-direction: column !important;
+        gap: 8px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container py-4">
+    <div class="card p-4">
+      <h1 class="mb-1">Formulário do Carômetro</h1>
+      <p class="small-note mb-3">Responda com poucas palavras — use os botões "Adicionar" para criar listas. Limites por
+        campo estão indicados.</p>
+
+      <form id="mentorForm" method="post" action="/api/mentores" novalidate>
+        <!-- Informações Pessoais -->
+        <h2 class="mt-3">Informações Pessoais</h2>
+        <div class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <label class="form-label">Como gosta de ser chamado</label>
+            <input id="display_name" name="display_name" type="text" class="form-control"
+              placeholder="Ex: Ana, Prof. Carlos" required>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Cargo atual</label>
+            <input id="current_role" name="current_role" type="text" class="form-control"
+              placeholder="Ex: Gerente de Operações">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Empresa</label>
+            <input id="company" name="company" type="text" class="form-control" placeholder="Ex: Neoenergia">
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">Ano que iniciou</label>
+            <input id="start_year_company" name="start_year_company" type="number" min="1900" max="2100"
+              class="form-control" placeholder="2018">
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">Cidade / Estado</label>
+            <input id="city" name="city" type="text" class="form-control" placeholder="Ex: Recife - PE">
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">LinkedIn ou rede profissional</label>
+            <input id="linkedin" name="linkedin" type="url" class="form-control"
+              placeholder="https://linkedin.com/in/seuperfil">
+          </div>
+        </div>
+
+        <div class="border-top my-5"></div>
+
+        <!-- Resumo da trajetória: experiências e especialidades -->
+        <h2 class="mt-4">Resumo da sua trajetória <small class="small-note">— até 5 experiências e 5 áreas de
+            especialidade</small></h2>
+        <div class="row g-3">
+          <!-- EXPERIÊNCIAS -->
+          <div class="col-lg-6">
+            <label class="form-label">Adicionar experiência (máx 5)</label>
+            <div class="d-flex gap-2 flex-wrap controls-sm-stack">
+              <input id="exp_desc" type="text" class="form-control flex-fill"
+                placeholder="Descrição curta (Ex: Líder de projeto X)">
+              <input id="exp_company" type="text" class="form-control" placeholder="Empresa"
+                style="min-width:140px; max-width:220px">
+              <input id="exp_start" type="number" min="1900" max="2100" class="form-control" placeholder="Início"
+                style="min-width:100px; max-width:120px">
+              <input id="exp_end" type="number" min="1900" max="2100" class="form-control" placeholder="Fim"
+                style="min-width:100px; max-width:120px">
+              <button type="button" id="addExpBtn" class="btn btn-primary">Adicionar</button>
+            </div>
+            <div id="exp_list" class="list-box mt-2"></div>
+            <div class="small-note mt-1">As experiências são salvas como itens separados.</div>
+          </div>
+
+          <!-- ESPECIALIDADES -->
+          <div class="col-lg-6">
+            <label class="form-label">Adicionar área de especialidade (máx 5)</label>
+            <div class="d-flex gap-2 flex-wrap controls-sm-stack">
+              <input id="spec_name" type="text" class="form-control flex-fill"
+                placeholder="Especialidade (Ex: Gestão de equipes)">
+              <input id="spec_institution" type="text" class="form-control" placeholder="Instituição de ensino"
+                style="min-width:200px; max-width:300px">
+              <button type="button" id="addSpecBtn" class="btn btn-primary">Adicionar</button>
+            </div>
+            <div id="spec_list" class="list-box mt-2"></div>
+            <div class="small-note mt-1">Especialidades enviadas como <code>specialties[]</code>.</div>
+          </div>
+        </div>
+
+        <div class="border-top my-5"></div>
+
+        <!-- Principais conquistas -->
+        <h2 class="mt-4">Principais conquistas ou projetos marcantes <small class="small-note">— até 3 itens</small>
+        </h2>
+        <div class="d-flex gap-2 flex-wrap controls-sm-stack">
+          <input id="ach_desc" type="text" class="form-control flex-fill"
+            placeholder="Descrição curta (Ex: Redução de custos X)">
+          <input id="ach_company" type="text" class="form-control" placeholder="Empresa"
+            style="min-width:160px; max-width:260px">
+          <input id="ach_year" type="number" min="1900" max="2100" class="form-control" placeholder="Ano"
+            style="min-width:90px; max-width:110px">
+          <button type="button" id="addAchBtn" class="btn btn-primary">Adicionar</button>
+        </div>
+        <div id="ach_list" class="list-box mt-2"></div>
+
+        <div class="border-top my-5"></div>
+
+        <!-- Estilo de Liderança -->
+        <h2 class="mt-4">Seu Estilo de Liderança <small class="small-note">— até 3 palavras</small></h2>
+        <div class="d-flex gap-2 flex-wrap controls-sm-stack align-items-center">
+          <input id="lead_input" type="text" class="form-control" placeholder="Ex: Empatia" style="min-width:200px">
+          <button type="button" id="addLeadBtn" class="btn btn-primary">Adicionar</button>
+        </div>
+        <div id="lead_list" class="list-box mt-2"></div>
+
+        <div class="border-top my-5"></div>
+
+        <!-- O que valoriza -->
+        <h2 class="mt-4">O que mais valoriza em uma equipe?</h2>
+        <div class="small-note mb-2">Marque todas as que se aplicam</div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Colaboração"> <span class="form-check-label">Colaboração</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Transparência"> <span class="form-check-label">Transparência</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Inovação"> <span class="form-check-label">Inovação</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Responsabilidade"> <span class="form-check-label">Responsabilidade</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Autonomia"> <span class="form-check-label">Autonomia</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Orientação a resultados"> <span class="form-check-label">Orientação a resultados</span></label>
+          </div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Empatia"> <span class="form-check-label">Empatia</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Comunicação clara"> <span class="form-check-label">Comunicação clara</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="values[]"
+                value="Diversidade"> <span class="form-check-label">Diversidade</span></label></div>
+        </div>
+
+        <div class="border-top my-5"></div>
+
+        <!-- Vida Pessoal -->
+        <h2 class="mt-4">Vida Pessoal e Interesses</h2>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Estado Civil</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="marital_status" id="m_solteiro" value="Solteiro">
+                <label class="form-check-label" for="m_solteiro">Solteiro</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="marital_status" id="m_noivo" value="Noivo">
+                <label class="form-check-label" for="m_noivo">Noivo</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="marital_status" id="m_casado" value="Casado">
+                <label class="form-check-label" for="m_casado">Casado</label>
+              </div>
+            </div>
+
+            <!-- campo do cônjuge (aparece se noivo/casado) -->
+            <div id="spouse_block" class="mt-2 hidden">
+              <label class="form-label">Nome</label>
+              <input id="spouse_name" name="spouse_name" type="text" class="form-control" placeholder="Nome">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Filhos</label>
+            <div class="d-flex gap-2 align-items-center">
+              <input id="children_number" name="children_number" type="number" min="0" max="10" class="form-control"
+                placeholder="Qtd" style="max-width:120px">
+              <div class="form-check ms-2">
+                <input id="no_children" class="form-check-input" type="checkbox">
+                <label class="form-check-label" for="no_children">Não tenho filhos</label>
+              </div>
+            </div>
+            <div id="children_names_container" class="mt-2"></div>
+            <div class="small-note mt-1">Se indicar N filhos, preencha os nomes (máx 10).</div>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Pets</label>
+            <div class="d-flex gap-2 align-items-center">
+              <input id="pet_count" name="pet_count" type="number" min="0" class="form-control" placeholder="Qtd"
+                style="max-width:110px">
+              <div class="form-check ms-2">
+                <input id="no_pets" class="form-check-input" type="checkbox">
+                <label class="form-check-label" for="no_pets">Não possui pets</label>
+              </div>
+            </div>
+
+            <div id="pet_species_block" class="mt-2">
+              <label class="form-label">Especifique a(s) espécie(s)</label>
+              <input id="pet_species_list" name="pet_species_list" type="text" class="form-control"
+                placeholder="Ex: Cachorro, Gato, Papagaio">
+              <div class="small-note mt-1">Separe por vírgula se houver mais de uma espécie.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-top my-5"></div>
+
+        <!-- Hobbies -->
+        <h2 class="mt-4">Hobbies e paixões</h2>
+        <div class="small-note mb-2">Marque todas as que se aplicam</div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Leitura"> <span class="form-check-label">Leitura</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Corrida"> <span class="form-check-label">Corrida</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Cozinhar"> <span class="form-check-label">Cozinhar</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Fotografia"> <span class="form-check-label">Fotografia</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Música"> <span class="form-check-label">Música</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Viagens"> <span class="form-check-label">Viagens</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Jardinagem"> <span class="form-check-label">Jardinagem</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Games"> <span class="form-check-label">Games</span></label></div>
+          <div class="col"><label class="form-check"><input class="form-check-input" type="checkbox" name="hobbies[]"
+                value="Artesanato"> <span class="form-check-label">Artesanato</span></label></div>
+        </div>
+
+        <!-- Concordância e Envio -->
+        <div class="mt-4">
+          <div class="form-check">
+            <input id="agree_terms" class="form-check-input" type="checkbox" required>
+            <label class="form-check-label" for="agree_terms">
+              Declaro que as informações fornecidas são verdadeiras e autorizo o uso dos dados para apresentação na
+              mentoria. Concordo com os Termos de Uso da STL Consulting.
+            </label>
+          </div>
+        </div>
+
+        <div class="mt-3 d-flex gap-2">
+          <button type="submit" class="btn btn-outline-secondary w-50">Enviar</button>
+          <a href="{{ url_for('tests') }}" class="btn btn-outline-primary w-50">Voltar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS (apenas utilitários) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /*******************************************************************
+     * JS: cria itens amigáveis e gerencia pets, estado civil e filhos
+     * Observação: os "hidden inputs" para as listas (experiências, etc.)
+     * são criados quando o usuário clica em "Adicionar" — mas a exibição
+     * ao usuário é apenas amigável (sem mostrar nomes de campos).
+     *******************************************************************/
+
+    /* helper: cria item amigável e inputs hidden para submissão */
+    function createCompositeListItemFriendly(container, displayTitle, displayMeta, hiddenInputs) {
+      const item = document.createElement('div');
+      item.className = 'list-item';
+
+      const left = document.createElement('div');
+      left.className = 'left';
+
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = displayTitle;
+
+      left.appendChild(title);
+
+      if (displayMeta) {
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = displayMeta;
+        left.appendChild(meta);
+      }
+
+      item.appendChild(left);
+
+      // hidden inputs (não visíveis)
+      Object.keys(hiddenInputs).forEach(k => {
+        const inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = hiddenInputs[k].name;
+        inp.value = hiddenInputs[k].value;
+        item.appendChild(inp);
+      });
+
+      const btnWrap = document.createElement('div');
+      const btnRemove = document.createElement('button');
+      btnRemove.type = 'button';
+      btnRemove.className = 'btn btn-outline-secondary btn-sm';
+      btnRemove.textContent = 'Remover';
+      btnRemove.addEventListener('click', () => container.removeChild(item));
+      btnWrap.appendChild(btnRemove);
+      item.appendChild(btnWrap);
+
+      container.appendChild(item);
+    }
+
+    /* ---------- EXPERIÊNCIAS ---------- */
+    const expDesc = document.getElementById('exp_desc');
+    const expCompany = document.getElementById('exp_company');
+    const expStart = document.getElementById('exp_start');
+    const expEnd = document.getElementById('exp_end');
+    const addExpBtn = document.getElementById('addExpBtn');
+    const expList = document.getElementById('exp_list');
+
+    addExpBtn.addEventListener('click', () => {
+      const desc = expDesc.value.trim();
+      const company = expCompany.value.trim();
+      const start = expStart.value.trim();
+      const end = expEnd.value.trim();
+      if (!desc) return alert('Preencha a descrição da experiência.');
+      if (!company) return alert('Preencha a empresa desta experiência.');
+      if (expList.querySelectorAll('.list-item').length >= 5) return alert('Máximo de 5 experiências permitido.');
+
+      let meta = company;
+      if (start || end) {
+        meta += ' • ' + (start ? start : '?') + ' — ' + (end ? end : 'Atual');
+      }
+
+      const hiddenInputs = {
+        description: { name: 'experiences[][description]', value: desc },
+        company: { name: 'experiences[][company]', value: company },
+        start_year: { name: 'experiences[][start_year]', value: start },
+        end_year: { name: 'experiences[][end_year]', value: end }
+      };
+      createCompositeListItemFriendly(expList, desc, meta, hiddenInputs);
+
+      expDesc.value = ''; expCompany.value = ''; expStart.value = ''; expEnd.value = '';
+    });
+
+    /* ---------- ESPECIALIDADES ---------- */
+    const specName = document.getElementById('spec_name');
+    const specInstitution = document.getElementById('spec_institution');
+    const addSpecBtn = document.getElementById('addSpecBtn');
+    const specList = document.getElementById('spec_list');
+
+    addSpecBtn.addEventListener('click', () => {
+      const name = specName.value.trim();
+      const inst = specInstitution.value.trim();
+      if (!name) return alert('Preencha o nome da especialidade.');
+      if (!inst) return alert('Preencha a instituição.');
+      if (specList.querySelectorAll('.list-item').length >= 5) return alert('Máximo de 5 especialidades permitido.');
+
+      const hiddenInputs = {
+        name: { name: 'specialties[][name]', value: name },
+        institution: { name: 'specialties[][institution]', value: inst }
+      };
+      createCompositeListItemFriendly(specList, name, inst, hiddenInputs);
+
+      specName.value = ''; specInstitution.value = '';
+    });
+
+    /* ---------- CONQUISTAS ---------- */
+    const achDesc = document.getElementById('ach_desc');
+    const achCompany = document.getElementById('ach_company');
+    const achYear = document.getElementById('ach_year');
+    const addAchBtn = document.getElementById('addAchBtn');
+    const achList = document.getElementById('ach_list');
+
+    addAchBtn.addEventListener('click', () => {
+      const desc = achDesc.value.trim();
+      const company = achCompany.value.trim();
+      const year = achYear.value.trim();
+      if (!desc) return alert('Preencha a descrição da conquista/projeto.');
+      if (!company) return alert('Preencha a empresa relacionada.');
+      if (achList.querySelectorAll('.list-item').length >= 3) return alert('Máximo de 3 conquistas permitido.');
+
+      const meta = company + (year ? ' • ' + year : '');
+      const hiddenInputs = {
+        description: { name: 'achievements[][description]', value: desc },
+        company: { name: 'achievements[][company]', value: company },
+        year: { name: 'achievements[][year]', value: year }
+      };
+      createCompositeListItemFriendly(achList, desc, meta, hiddenInputs);
+
+      achDesc.value = ''; achCompany.value = ''; achYear.value = '';
+    });
+
+    /* ---------- LIDERANÇA ---------- */
+    const leadInput = document.getElementById('lead_input');
+    const addLeadBtn = document.getElementById('addLeadBtn');
+    const leadList = document.getElementById('lead_list');
+
+    addLeadBtn.addEventListener('click', () => {
+      const val = leadInput.value.trim();
+      if (!val) return alert('Digite uma palavra antes de adicionar.');
+      if (leadList.querySelectorAll('.list-item').length >= 3) return alert('Máximo de 3 palavras permitido.');
+      const hiddenInputs = { word: { name: 'leadership_words[]', value: val } };
+      createCompositeListItemFriendly(leadList, val, '', hiddenInputs);
+      leadInput.value = '';
+    });
+
+    /* ---------- ESTADO CIVIL -> habilita campo cônjuge ---------- */
+    const spouseBlock = document.getElementById('spouse_block');
+    const spouseName = document.getElementById('spouse_name');
+    function updateSpouseField() {
+      const noivo = document.getElementById('m_noivo').checked;
+      const casado = document.getElementById('m_casado').checked;
+      if (noivo || casado) {
+        spouseBlock.classList.remove('hidden');
+        spouseName.disabled = false;
+      } else {
+        spouseBlock.classList.add('hidden');
+        spouseName.disabled = true;
+        spouseName.value = '';
+      }
+    }
+    document.getElementById('m_noivo').addEventListener('change', updateSpouseField);
+    document.getElementById('m_casado').addEventListener('change', updateSpouseField);
+    document.getElementById('m_solteiro').addEventListener('change', updateSpouseField);
+
+    /* ---------- FILHOS dinamicamente cria campos de nomes (máx 10) ---------- */
+    const childrenNumber = document.getElementById('children_number');
+    const childrenContainer = document.getElementById('children_names_container');
+    const noChildren = document.getElementById('no_children');
+
+    function renderChildrenFields(n) {
+      // remove extras se houver
+      while (childrenContainer.firstChild) childrenContainer.removeChild(childrenContainer.firstChild);
+      if (n <= 0) return;
+      if (n > 10) n = 10; // limite por segurança
+      for (let i = 1; i <= n; i++) {
+        const div = document.createElement('div');
+        div.className = 'mb-2';
+        const label = document.createElement('label');
+        label.className = 'form-label';
+        label.textContent = 'Nome do filho(a) ' + i;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'child_name_' + i; // backend pode ler child_name_1..N
+        input.className = 'form-control';
+        input.placeholder = 'Nome';
+        div.appendChild(label);
+        div.appendChild(input);
+        childrenContainer.appendChild(div);
+      }
+    }
+
+    childrenNumber.addEventListener('input', () => {
+      let val = parseInt(childrenNumber.value || 0);
+      if (isNaN(val) || val < 0) val = 0;
+      if (val > 10) { val = 10; childrenNumber.value = 10; }
+      noChildren.checked = (val === 0);
+      renderChildrenFields(val);
+    });
+
+    noChildren.addEventListener('change', () => {
+      if (noChildren.checked) {
+        childrenNumber.value = 0;
+        renderChildrenFields(0);
+      }
+    });
+
+    /* ---------- PETS: quantidade + não possui + campo espécies (texto) ---------- */
+    const petCount = document.getElementById('pet_count');
+    const noPets = document.getElementById('no_pets');
+    const petSpeciesBlock = document.getElementById('pet_species_block');
+    const petSpeciesList = document.getElementById('pet_species_list');
+
+    // inicial
+    function initPets() {
+      if (noPets.checked) {
+        petCount.value = 0;
+        petCount.disabled = true;
+        petSpeciesList.value = '';
+        petSpeciesList.disabled = true;
+      } else {
+        petCount.disabled = false;
+        petSpeciesList.disabled = false;
+      }
+    }
+    initPets();
+
+    noPets.addEventListener('change', () => {
+      if (noPets.checked) {
+        petCount.value = 0;
+        petCount.disabled = true;
+        petSpeciesList.value = '';
+        petSpeciesList.disabled = true;
+      } else {
+        petCount.disabled = false;
+        petSpeciesList.disabled = false;
+      }
+    });
+
+    petCount.addEventListener('input', () => {
+      const val = parseInt(petCount.value || 0);
+      if (val <= 0) {
+        // opcional: se 0, podemos manter o campo espécies ativado para texto livre,
+        // mas vamos deixar desativado por padrão para coerência
+        // Não marcar automaticamente "não possui pets" — usuário decide
+      }
+    });
+
+    /* ---------- SUBMIT: ajustes finais / validações simples ---------- */
+    document.getElementById('mentorForm').addEventListener('submit', (e) => {
+      // filhos coerente
+      if (noChildren.checked) childrenNumber.value = 0;
+      else if (childrenNumber.value === '') childrenNumber.value = 0;
+
+      // pets coerente
+      if (noPets.checked) {
+        petCount.value = 0;
+        petSpeciesList.value = '';
+      } else {
+        if (petCount.value === '') petCount.value = 0;
+        // se pet_count > 0 e pet_species_list vazio, pedir confirmação
+        if (parseInt(petCount.value || 0) > 0 && !petSpeciesList.value.trim()) {
+          e.preventDefault();
+          return alert('Você informou possuir pets — por favor, especifique a(s) espécie(s).');
+        }
+      }
+
+      // limites: garantir que as listas criadas não excedam limites (front+back)
+      if (expList.querySelectorAll('.list-item').length > 5 || specList.querySelectorAll('.list-item').length > 5 ||
+        achList.querySelectorAll('.list-item').length > 3 || leadList.querySelectorAll('.list-item').length > 3) {
+        e.preventDefault();
+        return alert('Alguns campos excederam o limite permitido. Remova itens extras antes de enviar.');
+      }
+
+      // tudo ok, deixa submeter
+      return true;
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,671 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+<section id="section-home" aria-label="section"
+  data-bgimage="url({{ url_for('static', filename='images/background/bg-1.jpg') }}) top"
+  data-stellar-background-ratio=".2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 col-md-6 col-8">
+        <div class="spacer-double"></div>
+        <h4 class="s1 id-color">Bem-Vindo</h4>
+        <div class="spacer-10"></div>
+        <h2 class="wow fadeInUp" data-wow-delay=".6s">A adversidade é o terreno da transformação da liderança!
+        </h2>
+        <p class="lead wow fadeInUp text-stl-1" data-wow-delay=".8s">Somos especializados em consultoria de times,
+          liderança, dinâmicas e mentoria, ajudando líderes e times a atingirem seu
+          máximo potencial.</p>
+        <div class="spacer-20"></div>
+        <a class="btn-custom wow fadeInUp scroll-to" data-wow-delay="1s" href="#section-events">Saiba como</a>
+        <div class="spacer-double"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section id="section-events" aria-label="section" class="no-padding bg-color">
+        <div class="container-fluid">
+          <div class="row no-gutters align-items-center">
+            <div class="col-lg-3 text-center text-light">
+              <h3 class="padding40 no-margin">Upcoming Events</h3>
+            </div>
+            <div class="col-lg-9">
+              <div id="training-carousel" class="owl-carousel owl-theme">
+                <div class="item">
+                  <div class="mask s2">
+                    <div class="m-date">01 <span>Jan</span></div>
+                    <div class="cover">
+                      <div class="c-inner">
+                        <h3><i class="fa fa-circle-thin"></i><span>Attitude is Everything</span></h3>
+                        <p>Motivation is a reason for actions, willingness, and goals. Motivation is derived from the
+                          word motive, or a need that requires satisfaction.</p>
+                        <div class="spacer20"></div>
+                        <a href="event-single-1.html" class="btn-custom capsule">Event Details</a>
+                      </div>
+                    </div>
+                    <img src="images/services/1.jpg" alt="" class="img-responsive" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="mask s2">
+                    <div class="m-date">12 <span>Jan</span></div>
+                    <div class="cover">
+                      <div class="c-inner">
+                        <h3><i class="fa fa-circle-thin"></i><span>The Winning Mindset</span></h3>
+                        <p>Motivation is a reason for actions, willingness, and goals. Motivation is derived from the
+                          word motive, or a need that requires satisfaction.</p>
+                        <div class="spacer20"></div>
+                        <a href="event-single-2.html" class="btn-custom capsule">Event Details</a>
+                      </div>
+                    </div>
+                    <img src="images/services/2.jpg" alt="" class="img-responsive" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="mask s2">
+                    <div class="m-date">20 <span>Jan</span></div>
+                    <div class="cover">
+                      <div class="c-inner">
+                        <h3><i class="fa fa-circle-thin"></i><span>Sales Breaktrough</span></h3>
+                        <p>Motivation is a reason for actions, willingness, and goals. Motivation is derived from the
+                          word motive, or a need that requires satisfaction.</p>
+                        <div class="spacer20"></div>
+                        <a href="event-single-3.html" class="btn-custom capsule">Event Details</a>
+                      </div>
+                    </div>
+                    <img src="images/services/3.jpg" alt="" class="img-responsive" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="mask s2">
+                    <div class="m-date">25 <span>Jan</span></div>
+                    <div class="cover">
+                      <div class="c-inner">
+                        <h3><i class="fa fa-circle-thin"></i><span>Effective Communication Skills</span></h3>
+                        <p>Motivation is a reason for actions, willingness, and goals. Motivation is derived from the
+                          word motive, or a need that requires satisfaction.</p>
+                        <div class="spacer20"></div>
+                        <a href="event-single-4.html" class="btn-custom capsule">Event Details</a>
+                      </div>
+                    </div>
+                    <img src="images/services/4.jpg" alt="" class="img-responsive" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="mask s2">
+                    <div class="m-date">01 <span>Feb</span></div>
+                    <div class="cover">
+                      <div class="c-inner">
+                        <h3><i class="fa fa-circle-thin"></i><span>Be The Game Changer</span></h3>
+                        <p>Motivation is a reason for actions, willingness, and goals. Motivation is derived from the
+                          word motive, or a need that requires satisfaction.</p>
+                        <div class="spacer20"></div>
+                        <a href="event-single-5.html" class="btn-custom capsule">Event Details</a>
+                      </div>
+                    </div>
+                    <img src="images/services/5.jpg" alt="" class="img-responsive" />
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="mask s2">
+                    <div class="m-date">10 <span>Feb</span></div>
+                    <div class="cover">
+                      <div class="c-inner">
+                        <h3><i class="fa fa-circle-thin"></i><span>I Can and I Will</span></h3>
+                        <p>Motivation is a reason for actions, willingness, and goals. Motivation is derived from the
+                          word motive, or a need that requires satisfaction.</p>
+                        <div class="spacer20"></div>
+                        <a href="event-single-6.html" class="btn-custom capsule">Event Details</a>
+                      </div>
+                    </div>
+                    <img src="images/services/6.jpg" alt="" class="img-responsive" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+<section id="section-about" class="relative">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="p-title">STL Consulting</span><br>
+        <h2>
+          Aqui está o seu<br>Próximo Nível.
+        </h2>
+        <div class="small-border sm-left"></div>
+      </div>
+      <div class="col-md-4">
+        <p>Somos especialistas em consultoria de equipe, liderança e
+          mentoria , com o
+          objetivo de ajudar indivíduos e equipes a atingirem seu máximo potencial. Cultivamos conexões humanas
+          genuínas, baseadas
+          em transparência, escuta e afeto , capacitando você e sua organização a alcançarem a excelência
+          profissional e pessoal.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <blockquote>Entendemos que liderança, como a vida, é uma jornada contínua, e não apenas uma habilidade a
+          ser dominada. Nossa força é
+          alimentada pela resiliência e propósito, pilares que transformam adversidades em oportunidades.<span
+            class="by">- Ardillis Romero</span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section id="section-products" class="no-top no-bottom" data-bgcolor="#e4e6e9"
+        data-bgimage="url(images/background/bg-1.png) bottom #e4e6e9">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 offset-md-7">
+              <div class="pt80 pb80">
+                <span class="p-title">What We Do</span><br>
+                <h2>
+                  Our Services
+                </h2>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                      aria-controls="pills-home" aria-selected="true">Public Seminar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                      aria-controls="pills-profile" aria-selected="false">In House Training</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                      aria-controls="pills-contact" aria-selected="false">Personal Coaching</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                    aria-labelledby="pills-home-tab">
+                    <p>Consequat occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt
+                      officia. Fugiat velit proident aliquip nisi incididunt nostrud exercitation proident est nisi.
+                      Irure magna elit commodo anim ex veniam culpa eiusmod id nostrud sit cupidatat in veniam ad.
+                      Eiusmod consequat eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit
+                      eu exercitation irure Lorem incididunt nostrud.</p>
+                  </div>
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <p>Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt
+                      incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate
+                      exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem
+                      amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut
+                      ullamco ea tempor duis.</p>
+                  </div>
+                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <p>Est quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua
+                      irure ex. Nulla ut duis ipsum nisi elit fugiat commodo sunt reprehenderit laborum veniam eu
+                      veniam. Eiusmod minim exercitation fugiat irure ex labore incididunt do fugiat commodo aliquip sit
+                      id deserunt reprehenderit aliquip nostrud. Amet ex cupidatat excepteur aute veniam incididunt
+                      mollit cupidatat esse irure officia elit do ipsum ullamco Lorem.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="image-container col-md-6 pull-right" data-bgimage="url(images/background/bg-3.jpg) center"></div>
+        <div class="clearfix"></div>
+      </section> -->
+<!-- <section class="bg-color text-light pt40 pb40">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp mb-sm-30" data-wow-delay="0s">
+              <div class="de_count">
+                <h3><span class="timer" data-to="600" data-speed="3000">0</span>+</h3>
+                <h5 class="text-white-op-5">Trainings</h5>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp mb-sm-30" data-wow-delay=".25s">
+              <div class="de_count">
+                <h3><span class="timer" data-to="120" data-speed="3000">0</span>k</h3>
+                <h5 class="text-white-op-5">Participants</h5>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp mb-sm-30" data-wow-delay=".4s">
+              <div class="de_count">
+                <h3><span class="timer" data-to="85" data-speed="3000">0</span></h3>
+                <h5 class="text-white-op-5">Companies</h5>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp mb-sm-30" data-wow-delay=".6s">
+              <div class="de_count">
+                <h3><span class="timer" data-to="50" data-speed="3000">0</span>k</h3>
+                <h5 class="text-white-op-5">Topics</h5>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp mb-sm-30" data-wow-delay=".8s">
+              <div class="de_count">
+                <h3><span class="timer" data-to="100" data-speed="3000">0</span>+</h3>
+                <h5 class="text-white-op-5">Countries</h5>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp mb-sm-30" data-wow-delay="1s">
+              <div class="de_count">
+                <h3><span class="timer" data-to="20" data-speed="3000">0</span></h3>
+                <h5 class="text-white-op-5">Speakers</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+<!-- <section id="section-methods">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center">
+                <h2>Our Method</h2>
+                <div class="small-border"></div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="f-box f-icon-left f-icon-rounded">
+                <i class="fa fa-book id-color bg-color-op-1"></i>
+                <div class="fb-text">
+                  <h4>Edutainment</h4>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="f-box f-icon-left f-icon-rounded">
+                <i class="fa fa-pencil id-color bg-color-op-1"></i>
+                <div class="fb-text">
+                  <h4>Experential Learning</h4>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="f-box f-icon-left f-icon-rounded">
+                <i class="fa fa-search id-color bg-color-op-1"></i>
+                <div class="fb-text">
+                  <h4>Self Discovery</h4>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="f-box f-icon-left f-icon-rounded">
+                <i class="fa fa-video-camera id-color bg-color-op-1"></i>
+                <div class="fb-text">
+                  <h4>Inspirational Movie</h4>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="f-box f-icon-left f-icon-rounded">
+                <i class="fa fa-gears  id-color bg-color-op-1"></i>
+                <div class="fb-text">
+                  <h4>Simulation</h4>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="f-box f-icon-left f-icon-rounded">
+                <i class="fa fa-child id-color bg-color-op-1"></i>
+                <div class="fb-text">
+                  <h4>Fun Games</h4>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+<section id="section-how" data-bgcolor="#2A2E37" class="text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <h2>Trilha da Mentoria</h2>
+          <div class="small-border"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section aria-label="section" data-bgcolor="#E4E6E9" class="no-top relative">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12 mt-70 relative">
+        <div class="de_tab tab_steps">
+          <ul class="de_nav owl-carousel owl-theme" id="de_nav_carousel">
+            <li class="active wow zoomIn" data-wow-delay="0s"><span>Módulo 1</span>
+              <div class="v-border"></div>
+            </li>
+            <li class="wow zoomIn" data-wow-delay=".4s"><span>Módulo 2</span>
+              <div class="v-border"></div>
+            </li>
+            <li class="wow zoomIn" data-wow-delay=".8s"><span>Módulo 3</span>
+              <div class="v-border"></div>
+            </li>
+            <li class="wow zoomIn" data-wow-delay="1.2s"><span>Módulo 4</span>
+              <div class="v-border"></div>
+            </li>
+            <li class="wow zoomIn" data-wow-delay="1.6s"><span>Módulo 5</span>
+              <div class="v-border"></div>
+            </li>
+          </ul>
+
+          <div class="de_tab_content" id="de_carousel_content">
+
+            <div id="tab1">
+              <strong class="text-primary">Café com a STL – Boas-vindas</strong>
+              <p>Imagine começar uma jornada que vai muito além da mentoria, um encontro que desperta propósito e
+                pertencimento. No
+                “Café com a STL”, você descobre quem somos, o porquê existimos e, principalmente, o que te trouxe até
+                aqui. É o momento
+                de alinhar expectativas, trocar histórias e dar o primeiro passo rumo a uma trilha de autodescoberta e
+                crescimento. Aqui
+                nasce uma conexão genuína entre mentor e mentorado, guiada por valores, propósito e visão de futuro.</p>
+            </div>
+
+            <div id="tab2">
+              <strong class="text-primary">Autoconhecimento – O ponto de partida</strong>
+              <p>Como liderar o mundo lá fora sem antes liderar o seu mundo interior?
+                Neste módulo, mergulhamos no autoconhecimento, o alicerce de toda transformação verdadeira. Você vai
+                identificar seus
+                valores, talentos e gatilhos, entender o que te move e traçar um plano de ação personalizado. Descubra
+                seu perfil por
+                meio de ferramentas práticas e reflexivas, e desperte uma nova consciência sobre quem você é e o que
+                realmente importa
+                para o seu propósito.</p>
+            </div>
+
+            <div id="tab3">
+              <strong class="text-primary">Propósito – O sentido que move</strong>
+              <p>Por que você faz o que faz?
+                Encontrar o propósito é descobrir o combustível que dá sentido à sua jornada pessoal e profissional.
+                Nesse encontro,
+                vamos explorar o equilíbrio entre propósito e realidade, entendendo como viver com significado sem
+                perder o pé no chão.
+                Com ferramentas inspiradas em Viktor Frankl e na psicologia positiva, você criará seu Mapa de Propósito,
+                conectando
+                valores, talentos e legado. Porque quando o “porquê” é claro, o “como” se torna mais poderoso.</p>
+            </div>
+
+            <div id="tab4">
+              <strong class="text-primary">O Futuro do Trabalho – Mundo Executivo e Empreendedor</strong>
+              <p>O mercado mudou e o sucesso agora pertence a quem aprende rápido, se adapta e se reinventa.
+                Neste módulo, você conhecerá as habilidades que definem o profissional do futuro: automotivação,
+                empatia, resiliência e
+                antifragilidade. Vamos entender o que o Fórum Econômico Mundial prevê para as próximas décadas e como
+                desenvolver as
+                competências que te manterão relevante e confiante. É o encontro que transforma incertezas em
+                oportunidades e prepara
+                você para liderar no novo mundo do trabalho.</p>
+            </div>
+
+            <div id="tab5">
+              <strong class="text-primary">Liderança e Comportamento na Carreira</strong>
+              <p>Liderar não é um cargo é uma atitude.
+                Neste encontro, você aprenderá a diferença entre responsabilidade e accountability, descobrindo o poder
+                de ser
+                protagonista da sua própria trajetória. Por meio de reflexões e dinâmicas, vamos identificar momentos em
+                que você agiu
+                como líder e outros em que se deixou levar pelo papel de vítima. Ao final, você terá clareza sobre como
+                assumir o
+                comando da sua carreira, inspirando e influenciando com autenticidade.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- <section id="section-news" aria-label="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-center">
+                <h2>Latest News</h2>
+                <div class="small-border"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="bloglist item">
+                <div class="post-content">
+                  <div class="date-box">
+                    <div class="m">10</div>
+                    <div class="d">NOV</div>
+                  </div>
+                  <div class="post-image">
+                    <img alt="" src="images/news/news-thumbnail-1.jpg">
+                  </div>
+                  <div class="post-text">
+                    <span class="p-tagline">Motivation</span>
+                    <h4><a href="news-single.html">The Things Every Successful Enterpreneur Does<span></span></a></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="bloglist item">
+                <div class="post-content">
+                  <div class="date-box">
+                    <div class="m">15</div>
+                    <div class="d">NOV</div>
+                  </div>
+                  <div class="post-image">
+                    <img alt="" src="images/news/news-thumbnail-2.jpg">
+                  </div>
+                  <div class="post-text">
+                    <span class="p-tagline">Motivation</span>
+                    <h4><a href="news-single.html">The 3 Most Dangerous Words In Enterpreneruship<span></span></a></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb30">
+              <div class="bloglist item">
+                <div class="post-content">
+                  <div class="date-box">
+                    <div class="m">20</div>
+                    <div class="d">NOV</div>
+                  </div>
+                  <div class="post-image">
+                    <img alt="" src="images/news/news-thumbnail-3.jpg">
+                  </div>
+                  <div class="post-text">
+                    <span class="p-tagline">Motivation</span>
+                    <h4><a href="news-single.html">10 Tips for Running a Startup Like a True Leader<span></span></a>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+<section aria-label="section" class="text-light"
+  data-bgimage="url({{ url_for('static', filename='images/background/bg-2.jpg') }}) top"
+  data-stellar-background-ratio=".2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center text-light">
+          <h2>Depoimentos</h2>
+          <div class="small-border"></div>
+        </div>
+        <div class="owl-carousel owl-theme" id="testimonial-carousel">
+          <div class="item">
+            <div class="de_testi opt-2 review">
+              <blockquote>
+                <i class="fa fa-quote-left id-color"></i>
+                <h3>Foi um dos melhores mentores!</h3>
+                <p>Momento importante para discussão de estratégia, fortalecimento
+                  da liderança transformadora e reencontro de grandes amigos e
+                  parceiros profissionais como você.</p>
+                <div class="de_testi_by"><span>André Gouveia de Figueirêdo</span></div>
+              </blockquote>
+            </div>
+          </div>
+          <div class="item">
+            <div class="de_testi opt-2 review">
+              <blockquote>
+                <i class="fa fa-quote-left id-color"></i>
+                <h3>Experiências incríveis!</h3>
+                <p>Parabéns, Ardillis Romero pelo trabalho realizado em Salvador! É
+                  sempre motivador acompanhar profissionais que atuam com
+                  excelência, fortalecem conexões e transformam desafios em
+                  oportunidades de crescimento. Que essa dedicação siga abrindo
+                  caminhos e gerando impactos positivos cada vez maiores.</p>
+                <div class="de_testi_by"><span>Hugo Mello</span></div>
+              </blockquote>
+            </div>
+          </div>
+          <div class="item">
+            <div class="de_testi opt-2 review">
+              <blockquote>
+                <i class="fa fa-quote-left id-color"></i>
+                <h3>Mais do que excelente!</h3>
+                <p>Ardillis Romero sua liderança no setor é inspiradora, os resultados
+                  que estamos construindo mostra o quanto temos um time
+                  engajado e comprometido em todas as instâncias. Vamos fazer um
+                  2025 excepcional!</p>
+                <div class="de_testi_by"><span>Leonardo Moura</span></div>
+              </blockquote>
+            </div>
+          </div>
+          <!-- <div class="item">
+                  <div class="de_testi opt-2 review">
+                    <blockquote>
+                      <i class="fa fa-quote-left id-color"></i>
+                      <h3>Eu absolutamente amo isso!</h3>
+                      <p>In nisi minim id ut do anim ea aliquip nisi pariatur quis minim laboris ad dolore anim
+                        consectetur sit adipisicing tempor ea quis nisi ex culpa ut.</p>
+                      <div class="de_testi_by"><span>Thomas, Samsung</span></div>
+                    </blockquote>
+                  </div>
+                </div> -->
+          <!-- <div class="item">
+                  <div class="de_testi opt-2 review">
+                    <blockquote>
+                      <i class="fa fa-quote-left id-color"></i>
+                      <h3>Eu realmente gostei disso!</h3>
+                      <p>Ad quis veniam nulla qui proident consectetur enim aute esse commodo nisi nisi nostrud culpa
+                        amet in et in eiusmod sunt eiusmod laborum eiusmod aute ut consequat dolor sunt ad cupidatat
+                        irure sint anim ad magna ut eu aute.</p>
+                      <div class="de_testi_by"><span>John, Pixar Studio</span></div>
+                    </blockquote>
+                  </div>
+                </div> -->
+          <!-- <div class="item">
+                  <div class="de_testi opt-2 review">
+                    <blockquote>
+                      <i class="fa fa-quote-left id-color"></i>
+                      <h3>Tive uma experiência muito positiva!</h3>
+                      <p>Lorem ipsum nostrud sed deserunt dolor esse in non officia laborum laborum ut duis mollit
+                        laboris anim ad dolore qui in ullamco ea esse ut duis ex ex do dolore et elit ut.</p>
+                      <div class="de_testi_by"><span>Sarah, Microsoft</span></div>
+                    </blockquote>
+                  </div>
+                </div> -->
+          <!-- <div class="item">
+                  <div class="de_testi opt-2 review">
+                    <blockquote>
+                      <i class="fa fa-quote-left id-color"></i>
+                      <h3>Muito amigável e caloroso!</h3>
+                      <p>Anim ea est amet id exercitation dolor non enim magna occaecat sit deserunt non eu aliqua dolor
+                        ut aliqua ut.</p>
+                      <div class="de_testi_by"><span>Michael, Apple</span></div>
+                    </blockquote>
+                  </div>
+                </div> -->
+          <!-- <div class="item">
+                  <div class="de_testi opt-2 review">
+                    <blockquote>
+                      <i class="fa fa-quote-left id-color"></i>
+                      <h3>Mentoria cinco estrelas</h3>
+                      <p>Qui qui voluptate duis laboris do reprehenderit aliquip cupidatat ea culpa id proident ullamco
+                        do in deserunt ullamco eu non tempor aliquip culpa excepteur sit irure enim in mollit non do
+                        duis.</p>
+                      <div class="de_testi_by"><span>Thomas, Samsung</span></div>
+                    </blockquote>
+                  </div>
+                </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- section begin -->
+<section id="section-contact"
+  data-bgimage="url({{ url_for('static', filename='images/background/bg-2.png') }}) bottom #e4e6e9">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <h2>Fale Conosco</h2>
+          <div class="small-border"></div>
+        </div>
+      </div>
+
+      <div class="col-md-8 offset-md-2 wow fadeInUp">
+        <form name="contactForm" id='contact_form' class="form-default" method="post" action='email.php'>
+          <div class="row">
+            <div class="col-md-6">
+              <div id='name_error' class='error'>Please enter your name.</div>
+              <div>
+                <input type='text' name='name' id='name' class="form-control" placeholder="Nome Completo">
+              </div>
+
+              <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
+              <div>
+                <input type='text' name='email' id='email' class="form-control" placeholder="Informe seu Email">
+              </div>
+
+              <div id='phone_error' class='error'>Please enter your phone number.</div>
+              <div>
+                <input type='text' name='phone' id='phone' class="form-control" placeholder="Informe seu WhatsApp">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div id='message_error' class='error'>Please enter your message.</div>
+              <div>
+                <textarea name='message' id='message' class="form-control" placeholder="Digite sua Mensagem"></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div id='submit'>
+                <input type='submit' id='send_message' value='Enviar' class="btn-custom">
+              </div>
+              <div id='mail_success' class='success'>Your message has been sent successfully.</div>
+              <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
+{% endblock %}

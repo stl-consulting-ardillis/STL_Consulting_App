@@ -1,0 +1,15 @@
+▶️ 3. Criar o túnel gratuito com domínio trycloudflare.com
+Agora no terminal, rode:
+
+Copiar e colar no CMD
+
+Tradicional (gera um dominio temporário):
+cloudflared tunnel --url http://localhost:5000
+
+=================================================================================================
+
+cloudflared tunnel --config C:/Users/ivani/.cloudflared/config.yml run app
+
+ou
+
+cloudflared tunnel --config config.yml run app

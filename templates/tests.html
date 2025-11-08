@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8" />
+  <title>STL Consulting - Testes e Tarefas</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Testes e Tarefas - STL Consulting" name="description" />
+  <meta content="" name="keywords" />
+  <meta content="" name="author" />
+  <!--[if lt IE 9]>
+            <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+        <![endif]-->
+  <!-- CSS Files
+    ================================================== -->
+  <link id="bootstrap" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"
+    type="text/css" />
+  <link id="bootstrap-grid" href="{{ url_for('static', filename='css/bootstrap-grid.min.css') }}" rel="stylesheet"
+    type="text/css" />
+  <link id="bootstrap-reboot" href="{{ url_for('static', filename='css/bootstrap-reboot.min.css') }}" rel="stylesheet"
+    type="text/css" />
+  <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/owl.carousel.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/owl.theme.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/owl.transitions.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/magnific-popup.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/jquery.countdown.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- color scheme -->
+  <link id="colors" href="{{ url_for('static', filename='css/colors/scheme-01.css') }}" rel="stylesheet"
+    type="text/css" />
+  <link href="{{ url_for('static', filename='css/coloring.css') }}" rel="stylesheet" type="text/css" />
+  <!-- Adicionando estilos personalizados para os botões de ação e tabelas -->
+  <style>
+    /* Estilos para os botões de ação personalizados (outline) */
+    .btn-realizar {
+      background-color: transparent;
+      /* Fundo transparente */
+      border-color: #17a2b8;
+      /* Borda Azul ciano */
+      color: #17a2b8;
+      /* Cor do texto e ícone Azul ciano */
+    }
+
+    .btn-realizar:hover,
+    .btn-realizar:active,
+    .btn-realizar:focus {
+      background-color: #17a2b8;
+      /* Fundo Azul ciano no hover */
+      border-color: #17a2b8;
+      color: white;
+      /* Cor do texto e ícone branco no hover */
+      /* Mantém o box-shadow do tema original */
+      -webkit-box-shadow: 2px 2px 20px 0px rgba(20, 20, 20, 0.3);
+      -moz-box-shadow: 2px 2px 20px 0px rgba(20, 20, 20, 0.3);
+      box-shadow: 2px 2px 20px 0px rgba(20, 20, 20, 0.3);
+    }
+
+    .btn-editar {
+      background-color: transparent;
+      /* Fundo transparente */
+      border-color: #6c757d;
+      /* Borda Cinza */
+      color: #6c757d;
+      /* Cor do texto e ícone Cinza */
+    }
+
+    .btn-editar:hover,
+    .btn-editar:active,
+    .btn-editar:focus {
+      background-color: #6c757d;
+      /* Fundo Cinza no hover */
+      border-color: #6c757d;
+      color: white;
+      /* Cor do texto e ícone branco no hover */
+    }
+
+    .btn-visualizar {
+      background-color: transparent;
+      /* Fundo transparente */
+      border-color: #17a2b8;
+      /* Borda Azul ciano */
+      color: #17a2b8;
+      /* Cor do texto e ícone Azul ciano */
+    }
+
+    .btn-visualizar:hover,
+    .btn-visualizar:active,
+    .btn-visualizar:focus {
+      background-color: #17a2b8;
+      /* Fundo Azul ciano no hover */
+      border-color: #17a2b8;
+      color: white;
+      /* Cor do texto e ícone branco no hover */
+    }
+
+    .btn-baixar {
+      background-color: transparent;
+      /* Fundo transparente */
+      border-color: #28a745;
+      /* Borda Verde */
+      color: #28a745;
+      /* Cor do texto e ícone Verde */
+    }
+
+    .btn-baixar:hover,
+    .btn-baixar:active,
+    .btn-baixar:focus {
+      background-color: #28a745;
+      /* Fundo Verde no hover */
+      border-color: #28a745;
+      color: white;
+      /* Cor do texto e ícone branco no hover */
+    }
+
+    .btn-excluir {
+      background-color: transparent;
+      /* Fundo transparente */
+      border-color: #dc3545;
+      /* Borda Vermelho */
+      color: #dc3545;
+      /* Cor do texto e ícone Vermelho */
+    }
+
+    .btn-excluir:hover,
+    .btn-excluir:active,
+    .btn-excluir:focus {
+      background-color: #dc3545;
+      /* Fundo Vermelho no hover */
+      border-color: #dc3545;
+      color: white;
+      /* Cor do texto e ícone branco no hover */
+    }
+
+    .btn-anexar {
+      background-color: transparent;
+      /* Fundo transparente */
+      border-color: #6f42c1;
+      /* Borda Roxo */
+      color: #6f42c1;
+      /* Cor do texto e ícone Roxo */
+    }
+
+    .btn-anexar:hover,
+    .btn-anexar:active,
+    .btn-anexar:focus {
+      background-color: #6f42c1;
+      /* Fundo Roxo no hover */
+      border-color: #6f42c1;
+      color: white;
+      /* Cor do texto e ícone branco no hover */
+    }
+
+    .action-btn {
+      margin: 0 2px;
+      /* Espaçamento pequeno entre os botões */
+      /* Padding e tamanho de fonte padronizados para todos os botões de ação */
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      /* Definindo largura e altura fixas para os botões */
+      width: 40px;
+      /* Largura fixa */
+      height: 38px;
+      /* Altura fixa (ajustada para alinhar com o padding) */
+      /* Alinhamento do conteúdo (ícone) dentro do botão */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      /* Evita que o texto do botão (não há, mas por segurança) quebre a linha */
+      white-space: nowrap;
+      /* Garante que o ícone centralizado funcione corretamente */
+      text-align: center;
+      /* Estilo de borda e tipo de cursor */
+      border: 1px solid transparent;
+      /* Borda inicialmente transparente */
+      border-radius: 0.25rem;
+      /* Bordas levemente arredondadas */
+      text-decoration: none;
+      cursor: pointer;
+      /* Transição suave para hover */
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    /* Estilo para botões desabilitados */
+    .action-btn.disabled,
+    .action-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      /* Aplica o estilo de desabilitado herdando cores do botão original */
+      pointer-events: none;
+      /* Ajuste para botão outline desabilitado: remove borda ou deixa borda transparente */
+      border-color: transparent !important;
+      /* Força a remoção da borda */
+      color: #6c757d !important;
+      /* Cor de texto cinza claro */
+      background-color: transparent !important;
+      /* Força fundo transparente */
+    }
+
+    .table th,
+    .table td {
+      vertical-align: middle;
+      /* Centraliza verticalmente o conteúdo das células */
+      white-space: nowrap;
+      /* Impede quebra de linha em todas as células */
+    }
+
+    /* Estilos para os badges de status */
+    .status-liberado {
+      background-color: #038f42;
+      /* Azul Bootstrap primary */
+      color: white;
+      /* Texto branco */
+    }
+
+    .status-bloqueado {
+      background-color: #e9ecef;
+      /* Cinza muito claro */
+      color: #6c757d;
+      /* Texto cinza */
+    }
+
+    .status-concluido {
+      background-color: #28a745;
+      /* Verde Bootstrap success */
+      color: white;
+      /* Texto branco */
+    }
+
+    .status-pendente {
+      background-color: #ffc107;
+      /* Amarelo Bootstrap warning */
+      color: #212529;
+      /* Texto escuro */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="topbar" class="text-white bg-color topbar-noborder">
+      <div class="container">
+        <div class="topbar-left sm-hide">
+          <span class="topbar-widget tb-social">
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </span>
+        </div>
+        <div class="topbar-right">
+          <!-- <span class="topbar-widget"><a href="#">Privacy policy</a></span> -->
+          {% if current_user.is_authenticated %}
+          <!-- Mostra o nome do usuário, o link para Mensagens, Meu Perfil e o link de logout se estiver logado -->
+          <span class="topbar-widget">Olá, {{ current_user.username.split(' ')[0] | title_except_prepositions }}!</span>
+          <!-- Ícone de Mensagens com Tooltip e Contador -->
+          <span class="topbar-widget" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mensagens">
+            <a href="#" class="text-white">
+              <i class="fa fa-bell fa-lg"></i> <!-- Ícone de envelope para mensagens -->
+              <span class="message-count">0</span> <!-- Contador de mensagens (0 ou outro número) -->
+            </a>
+          </span>
+          <!-- Ícone de Meu Perfil com Tooltip -->
+          <span class="topbar-widget" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Meu Perfil">
+            <a href="{{ url_for('profile') }}" class="text-white">
+              <i class="fa fa-user fa-lg"></i> <!-- Ícone de usuário para perfil -->
+            </a>
+          </span>
+          <!-- Ícone de Sair com Tooltip -->
+          <span class="topbar-widget" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sair">
+            <a href="{{ url_for('logout') }}" class="text-white">
+              <i class="fa fa-sign-out fa-lg"></i> <!-- Ícone de saída -->
+            </a>
+          </span>
+          {% else %}
+          <!-- Mostra o link de Área do Mentorado e FAQ se não estiver logado -->
+          <span class="topbar-widget"><a href="{{ url_for('login') }}">Área do Mentorado</a></span>
+          <span class="topbar-widget"><a href="#">FAQ</a></span>
+          {% endif %}
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- header begin -->
+    <header class="header-light transparent">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="de-flex sm-pt10">
+              <div class="de-flex-col">
+                <!-- logo begin -->
+                <div id="logo">
+                  <a href="{{ url_for('index') }}"> <!-- Use url_for para gerar a URL -->
+                    <img alt="" class="logo" src="{{ url_for('static', filename='images/logo-light.png') }}" />
+                    <img alt="" class="logo-2" src="{{ url_for('static', filename='images/logo.png') }}" />
+                  </a>
+                </div>
+                <!-- logo close -->
+              </div>
+              <div class="de-flex-col header-col-mid">
+                <!-- mainmenu begin -->
+                <ul id="mainmenu">
+                  <li><a href="{{ url_for('index') }}">Home</a></li>
+                  <li><a href="{{ url_for('mentor_area') }}">Mentorias</a></li>
+                  <!-- <li><a href="{{ url_for('tests') }}">Tarefas</a></li> -->
+                  <li><a href="#">Agenda</a></li> <!-- Futura funcionalidade -->
+                  <li><a href="#">Financeiro</a></li> <!-- Futura funcionalidade -->
+                  <li><a href="#">Suporte</a></li> <!-- Futura funcionalidade -->
+                  <li><a href="#">Currículo</a></li> <!-- Futura funcionalidade -->
+                </ul>
+                <!-- mainmenu close -->
+              </div>
+              <div class="de-flex-col">
+                <div class="h-phone md-hide"><span>Precisa de Ajuda?</span><i class="fa fa-phone"></i> (81) 9 8752 1515
+                </div>
+                <span id="menu-btn"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header close -->
+    <!-- content begin -->
+    <div class="no-bottom no-top" id="content">
+      <div id="top"></div>
+      <section id="section-tests" aria-label="section"
+        data-bgimage="url({{ url_for('static', filename='images/background/bg-1.jpg') }}) top"
+        data-stellar-background-ratio=".2">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-12 text-center">
+              <div class="spacer-double"></div>
+              <h4 class="s1 id-color">Central de Testes e Tarefas</h4>
+              <div class="spacer-10"></div>
+              <h2 class="wow fadeInUp" data-wow-delay=".6s">Acompanhe seu Progresso</h2>
+              <p class="lead wow fadeInUp text-stl-1" data-wow-delay=".8s">Confira abaixo os testes e tarefas
+                disponíveis por módulo. Lembre-se de completar as atividades para avançar.</p>
+              <div class="spacer-20"></div>
+              <!-- <a class="btn-custom wow fadeInUp scroll-to" data-wow-delay="1s" href="#section-events">Saiba como</a> -->
+              <div class="spacer-double"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section aria-label="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-primary">Módulo 1: Autoconhecimento e Propósito</h3>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Prazo</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <h6>Preencha seu Carômetro</h6>
+                        <span>Será utilizado em metoria</span>
+                      </td>
+                      <td>Formulario</td>
+                      <td><span class="badge status-liberado">Liberado</span></td>
+                      <td>2025-11-05</td> <!-- Nova coluna com data fictícia -->
+                      <td>
+                        <!-- Div contendo o grid para os botões -->
+                        <div class="row g-1"> <!-- g-1 para espaçamento reduzido entre as colunas/linhas -->
+                          <div class="col-auto">
+                            <a href="{{ url_for('test_01') }}" class="btn btn-sm action-btn btn-realizar"
+                              title="Realizar"><i class="fa fa-edit"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-anexar disabled" title="Anexar"><i
+                                class="fa fa-paperclip-vertical"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-editar disabled" title="Editar" disabled><i
+                                class="fa fa-pencil"></i></a>
+                          </div>
+                        </div>
+                        <div class="row g-1 mt-1"> <!-- mt-1 para adicionar um pequeno espaçamento entre as linhas -->
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-visualizar disabled" title="Visualizar"><i
+                                class="fa fa-eye"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-baixar disabled" title="Baixar"><i
+                                class="fa fa-download"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-excluir disabled" title="Excluir" disabled><i
+                                class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>-</td>
+                      <td>Teste</td>
+                      <td><span class="badge status-bloqueado">Bloqueado</span></td>
+                      <td>2025-11-05</td>
+                      <td>
+                        <!-- Div contendo o grid para os botões -->
+                        <div class="row g-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-realizar disabled" title="Preencher"><i
+                                class="fa fa-edit"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-anexar disabled" title="Anexar"><i
+                                class="fa fa-paperclip-vertical"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-editar disabled" title="Editar" disabled><i
+                                class="fa fa-pencil"></i></a>
+                          </div>
+                        </div>
+                        <div class="row g-1 mt-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-visualizar disabled" title="Visualizar"><i
+                                class="fa fa-eye"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-baixar disabled" title="Baixar"><i
+                                class="fa fa-download"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-excluir disabled" title="Excluir" disabled><i
+                                class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <h3>Módulo 2: Liderança Consciente</h3>
+              <div class="table-responsive">
+                <table class="table table-hover table-tests">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Prazo</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>-</td>
+                      <td>Teste</td>
+                      <td><span class="badge status-bloqueado">Bloqueado</span></td>
+                      <td>2025-11-05</td>
+                      <td>
+                        <!-- Div contendo o grid para os botões -->
+                        <div class="row g-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-realizar disabled" title="Preencher"><i
+                                class="fa fa-edit"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-anexar disabled" title="Anexar"><i
+                                class="fa fa-paperclip-vertical"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-editar disabled" title="Editar" disabled><i
+                                class="fa fa-pencil"></i></a>
+                          </div>
+                        </div>
+                        <div class="row g-1 mt-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-visualizar disabled" title="Visualizar"><i
+                                class="fa fa-eye"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-baixar disabled" title="Baixar"><i
+                                class="fa fa-download"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-excluir disabled" title="Excluir" disabled><i
+                                class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <h3>Módulo 3: Comunicação Assertiva</h3>
+              <div class="table-responsive">
+                <table class="table table-hover table-tests">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Prazo</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>-</td>
+                      <td>Teste</td>
+                      <td><span class="badge status-bloqueado">Bloqueado</span></td>
+                      <td>2025-11-05</td>
+                      <td>
+                        <!-- Div contendo o grid para os botões -->
+                        <div class="row g-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-realizar disabled" title="Preencher"><i
+                                class="fa fa-edit"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-anexar disabled" title="Anexar"><i
+                                class="fa fa-paperclip-vertical"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-editar disabled" title="Editar" disabled><i
+                                class="fa fa-pencil"></i></a>
+                          </div>
+                        </div>
+                        <div class="row g-1 mt-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-visualizar disabled" title="Visualizar"><i
+                                class="fa fa-eye"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-baixar disabled" title="Baixar"><i
+                                class="fa fa-download"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-excluir disabled" title="Excluir" disabled><i
+                                class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <h3>Módulo 4: Gestão de Conflitos</h3>
+              <div class="table-responsive">
+                <table class="table table-hover table-tests">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Prazo</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>-</td>
+                      <td>Teste</td>
+                      <td><span class="badge status-bloqueado">Bloqueado</span></td>
+                      <td>2025-11-05</td>
+                      <td>
+                        <!-- Div contendo o grid para os botões -->
+                        <div class="row g-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-realizar disabled" title="Preencher"><i
+                                class="fa fa-edit"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-anexar disabled" title="Anexar"><i
+                                class="fa fa-paperclip-vertical"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-editar disabled" title="Editar" disabled><i
+                                class="fa fa-pencil"></i></a>
+                          </div>
+                        </div>
+                        <div class="row g-1 mt-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-visualizar disabled" title="Visualizar"><i
+                                class="fa fa-eye"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-baixar disabled" title="Baixar"><i
+                                class="fa fa-download"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-excluir disabled" title="Excluir" disabled><i
+                                class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-md-12">
+              <h3>Módulo 5: Resiliência e Adaptabilidade</h3>
+              <div class="table-responsive">
+                <table class="table table-hover table-tests">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Prazo</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>-</td>
+                      <td>Teste</td>
+                      <td><span class="badge status-bloqueado">Bloqueado</span></td>
+                      <td>2025-11-05</td>
+                      <td>
+                        <!-- Div contendo o grid para os botões -->
+                        <div class="row g-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-realizar disabled" title="Preencher"><i
+                                class="fa fa-edit"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-anexar disabled" title="Anexar"><i
+                                class="fa fa-paperclip-vertical"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-editar disabled" title="Editar" disabled><i
+                                class="fa fa-pencil"></i></a>
+                          </div>
+                        </div>
+                        <div class="row g-1 mt-1">
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-visualizar disabled" title="Visualizar"><i
+                                class="fa fa-eye"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-baixar disabled" title="Baixar"><i
+                                class="fa fa-download"></i></a>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="btn btn-sm action-btn btn-excluir disabled" title="Excluir" disabled><i
+                                class="fa fa-trash"></i></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- content close -->
+    <a href="#" id="back-to-top"></a>
+    <!-- footer begin -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget">
+              <a href="{{ url_for('index') }}"><img alt="" class="img-fluid mb20"
+                  src="{{ url_for('static', filename='images/logo-light.png') }}"></a>
+              <address class="s1">
+                <span><i class="id-color fa fa-map-marker fa-lg"></i>Recife, Pernambuco</span>
+                <span><i class="id-color fa fa-phone fa-lg"></i>(81) 9 8752 1515</span>
+                <span><i class="id-color fa fa-envelope-o fa-lg"></i><a
+                    href="mailto:stl_consulting@hotmail.com">stl_consulting@hotmail.com</a></span>
+                <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Portfólio</a></span>
+              </address>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="widget">
+              <h5 class="id-color">Newsletter</h5>
+              <p>Inscreva-se em nossa newsletter para receber as últimas notícias, atualizações e ofertas especiais em
+                sua caixa de entrada.</p>
+              <form action="blank.php" class="row" id="form_subscribe" method="post" name="form_subscribe">
+                <div class="col text-center">
+                  <input class="form-control" id="name_1" name="name_1" placeholder="entre com seu email" type="text" />
+                  <a href="#" id="btn-submit"><i class="fa fa-long-arrow-right"></i></a>
+                  <div class="clearfix"></div>
+                </div>
+              </form>
+              <div class="spacer-10"></div>
+              <small class="text-white-op-5">Seu e-mail está seguro conosco. Nós não enviamos spam.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subfooter">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="de-flex">
+                <div class="de-flex-col">
+                  &copy; Copyright 2025 - STL Consulting
+                </div>
+                <div class="de-flex-col">
+                  <div class="social-icons">
+                    <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+                    <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer close -->
+    <div id="preloader">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Javascript Files
+    ================================================== -->
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.isotope.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/easing.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lenis.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/enquire.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.plugin.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/typed.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.countdown.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/typed.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/designesia.js') }}"></script>
+  <!-- Adicionando script para inicializar os tooltips do Bootstrap -->
+  <script>
+    // Inicializa todos os tooltips na página
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+</body>
+
+</html>
